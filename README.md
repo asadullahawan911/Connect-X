@@ -1,2 +1,1 @@
-# Project
-WAD Project
+# Connect X
