@@ -135,3 +135,18 @@ span.psw {
         width: 100%;
     }
 }
+
+/*Social icons in Footer*/
+#social {
+    padding-bottom: 20px;
+    padding-left: 20px;
+    size: 200px;
+    /*width: 200px;*/
+}
+
+#social a {
+    size: 200px;
+    /* width: 100px;*/
+    padding-right: 10px;
+    color: white;
+}
