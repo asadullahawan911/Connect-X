@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="css/w3Schools.css">
     <link rel="stylesheet" href="css/loginSignup.css">
     <link rel="stylesheet" href="css/responsiveMenu.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        input[class="validity"]:valid {
+            background-color: limegreen;
+        }
+
+    </style>
 </head>
 <body>
 
@@ -78,10 +85,10 @@
 
         <div class="containerls">
             <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
+            <input type="text" class="validity" placeholder="Enter Username" name="uname" required pattern="^\w+(?:\.|\-|_)?\w+$">
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <input type="password" class="validity" placeholder="Enter Password" name="psw" required pattern="^\w{8,}$">
 
             <button type="submit">Login</button>
             <label>
@@ -112,10 +119,10 @@
             <input type="text" placeholder="Enter Email" name="email" required>
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <input type="password" class="validity" placeholder="Enter Password" name="psw" required pattern="^\w{8,}$">
 
             <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+            <input type="password" class="validity" placeholder="Repeat Password" name="psw-repeat" required pattern="^\w{8,}$">
             <label>
                 <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
             </label>
