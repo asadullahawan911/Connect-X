@@ -1,3 +1,6 @@
+<?php
+require_once "database/dbConnection.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,7 +76,7 @@
         <div class="imgcontainer">
             <img src="images/ConnectXlogo.png" alt="" style=" width:200px;">
             <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close">&times;</span>
-            <img src="ConnectX.png" alt="" width="200">
+            <img src="images/ConnectXlogo.png" alt="" width="200">
         </div>
 
         <div class="containerls">
@@ -203,14 +206,14 @@
 <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Our Team</h3>
 <div class="w3-row-padding">
     <div class="w3-col l3 m6 w3-margin-bottom">
-        <img src="mypic.jpg" alt="" style="width:100%">
+<!--        <img src="mypic.jpg" alt="" style="width:100%">-->
         <h3>Asad Ullah</h3>
         <p class="w3-opacity">Team Lead</p>
         <p> Team Members </p>
         <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
-        <img src="mypic.jpg" alt="" style="width:100%">
+<!--        <img src="mypic.jpg" alt="" style="width:100%">-->
         <h3>Rimsha Imran</h3>
         <p class="w3-opacity">Team Member</p>
         <p> Team Members </p>

@@ -91,12 +91,6 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `password`, `rating`, `DOB`, `Profile_image`) VALUES
-(1, 'Asad', 'Ullah', 'asadullah.awan@ucp.edu.pk', 'asd123', '0.0', '1996-09-11', ''),
-(2, 'Rimsha', 'Imran', 'rimshaimran@ucp.edu.pk', 'rimsha123', '0.0', '1999-01-28', '');
-
-
 --
 -- Indexes for dumped tables
 --
