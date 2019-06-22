@@ -1,3 +1,6 @@
+<?php
+require_once "database/dbConnection.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,13 +16,6 @@
     <link rel="stylesheet" href="css/w3Schools.css">
     <link rel="stylesheet" href="css/loginSignup.css">
     <link rel="stylesheet" href="css/responsiveMenu.css">
-    <link rel="stylesheet" href="bootstrap.css">
-    <style>
-        input[class="validity"]:valid {
-            background-color: limegreen;
-        }
-
-    </style>
 </head>
 <body>
 
@@ -80,15 +76,15 @@
         <div class="imgcontainer">
             <img src="images/ConnectXlogo.png" alt="" style=" width:200px;">
             <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close">&times;</span>
-            <img src="ConnectX.png" alt="" width="200">
+            <img src="images/ConnectXlogo.png" alt="" width="200">
         </div>
 
         <div class="containerls">
             <label for="uname"><b>Username</b></label>
-            <input type="text" class="validity" placeholder="Enter Username" name="uname" required pattern="^\w+(?:\.|\-|_)?\w+$">
+            <input type="text" placeholder="Enter Username" name="uname" required>
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" class="validity" placeholder="Enter Password" name="psw" required pattern="^\w{8,}$">
+            <input type="password" placeholder="Enter Password" name="psw" required>
 
             <button type="submit">Login</button>
             <label>
@@ -121,10 +117,10 @@
             <input type="text" class="validity" placeholder="Enter Email" name="email" required pattern="^[a-z0-9_\-\.]+@\w+\.\w+\.?\w+$">
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" class="validity" placeholder="Enter Password" name="psw" required pattern="^\w{8,}$">
+            <input type="password" placeholder="Enter Password" name="psw" required>
 
             <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" class="validity" placeholder="Repeat Password" name="psw-repeat" required pattern="^\w{8,}$">
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
             <label>
                 <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
             </label>
@@ -155,12 +151,10 @@
 
 <!-- Page content -->
 <div class="w3-container w3-padding-32" id="home">
-    <div class="responsive">
-        <iframe width="700" height="394"
-                src="https://www.youtube.com/embed/U5WsK-UNK6U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-        </iframe>
-    </div>
 
+    <iframe width="700" height="394"
+            src="https://www.youtube.com/embed/U5WsK-UNK6U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
 <!--    <div class="w3-content w3-section container w3-left" style="max-width: 1000px;">-->
 <!--        <button class="btn"> Get Started </button>-->
 <!--        <img class="mySlides" src="images/slider1.jpg" style="width:1220px; height: 300px;">-->
@@ -214,14 +208,14 @@
 <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Our Team</h3>
 <div class="w3-row-padding">
     <div class="w3-col l3 m6 w3-margin-bottom">
-        <img src="mypic.jpg" alt="" style="width:100%">
+<!--        <img src="mypic.jpg" alt="" style="width:100%">-->
         <h3>Asad Ullah</h3>
         <p class="w3-opacity">Team Lead</p>
         <p> Team Members </p>
         <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
-        <img src="mypic.jpg" alt="" style="width:100%">
+<!--        <img src="mypic.jpg" alt="" style="width:100%">-->
         <h3>Rimsha Imran</h3>
         <p class="w3-opacity">Team Member</p>
         <p> Team Members </p>
