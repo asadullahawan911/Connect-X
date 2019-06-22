@@ -16,6 +16,13 @@ require_once "database/dbConnection.php";
     <link rel="stylesheet" href="css/w3Schools.css">
     <link rel="stylesheet" href="css/loginSignup.css">
     <link rel="stylesheet" href="css/responsiveMenu.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        input[class="validity"]:valid {
+            background-color: limegreen;
+        }
+
+    </style>
 </head>
 <body>
 
@@ -81,10 +88,10 @@ require_once "database/dbConnection.php";
 
         <div class="containerls">
             <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
+            <input type="text" placeholder="Enter Username" name="uname" required pattern="^\w+(?:\.|\-|_)?\w+$">
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <input type="password" placeholder="Enter Password" name="psw" required pattern="^\w{8,}$">
 
             <button type="submit">Login</button>
             <label>
@@ -105,7 +112,6 @@ require_once "database/dbConnection.php";
         <div class="imgcontainer">
             <img src="images/ConnectXlogo.png" alt="" style=" width:200px;">
             <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close">&times;</span>
-            <img src="ConnectX.png" alt="" width="200">
         </div>
         <div class="containerls">
             <h1>Sign Up</h1>
@@ -117,10 +123,14 @@ require_once "database/dbConnection.php";
             <input type="text" class="validity" placeholder="Enter Email" name="email" required pattern="^[a-z0-9_\-\.]+@\w+\.\w+\.?\w+$">
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <input type="password" placeholder="Enter Password" name="psw" required pattern="^\w{8,}$">
 
             <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" required pattern="^\w{8,}$">
+
+            <label for="dob"><b>DOB</b></label>
+            <input type="date"  placeholder="Enter DOB" name="dob" required pattern="^([0-9]{2})\/([1-9]{1}|[10-12]{2})\/([0-9]{4})">
+
             <label>
                 <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
             </label>
@@ -152,9 +162,10 @@ require_once "database/dbConnection.php";
 <!-- Page content -->
 <div class="w3-container w3-padding-32" id="home">
 
-    <iframe width="700" height="394"
-            src="https://www.youtube.com/embed/U5WsK-UNK6U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-    </iframe>
+    <div class="responsive">
+        <iframe width="700" height="394"
+                src="https://www.youtube.com/embed/U5WsK-UNK6U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
 <!--    <div class="w3-content w3-section container w3-left" style="max-width: 1000px;">-->
 <!--        <button class="btn"> Get Started </button>-->
 <!--        <img class="mySlides" src="images/slider1.jpg" style="width:1220px; height: 300px;">-->
