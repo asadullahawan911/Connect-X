@@ -1,6 +1,6 @@
 <?php
 require_once "database/dbConnection.php";
-include 'database/insert_signup.php';
+include 'server/insert_signup.php';
 ?>
 <!DOCTYPE html>
 <html>
