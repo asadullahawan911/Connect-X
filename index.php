@@ -1,5 +1,6 @@
 <?php
 require_once "database/dbConnection.php";
+include 'database/insert_signup.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -108,7 +109,7 @@ require_once "database/dbConnection.php";
 
 <!--Sign up from-->
 <div id="signup" class="modal">
-    <form class="modal-content" action="/action_page.php">
+    <form class="modal-content" action="index.php" method="post">
         <div class="imgcontainer">
             <img src="images/ConnectXlogo.png" alt="" style=" width:200px;">
             <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close">&times;</span>
@@ -123,10 +124,10 @@ require_once "database/dbConnection.php";
             <input type="text" class="validity" placeholder="Enter Email" name="email" required pattern="^[a-z0-9_\-\.]+@\w+\.\w+\.?\w+$">
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required pattern="^\w{8,}$">
+            <input type="password" class="validity" placeholder="Enter Password" name="psw" required pattern="^\w{8,}$">
 
             <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" required pattern="^\w{8,}$">
+            <input type="password" class="validity" placeholder="Repeat Password" name="psw-repeat" required pattern="^\w{8,}$">
 
             <label for="dob"><b>DOB</b></label>
             <input type="date"  placeholder="Enter DOB" name="dob" required pattern="^([0-9]{2})\/([1-9]{1}|[10-12]{2})\/([0-9]{4})">
@@ -139,7 +140,7 @@ require_once "database/dbConnection.php";
 
             <div>
                 <button type="button" onclick="document.getElementById('signup').style.display='none'" class="cancelbtn" >Cancel</button>
-                <button type="submit" class="signupbtn">Sign Up</button>
+                <button type="submit" name="signupbtn" class="signupbtn">Sign Up</button>
             </div>
         </div>
     </form>

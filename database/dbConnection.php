@@ -1,5 +1,6 @@
 <?php
-$connection = mysqli_connect("localhost","root","","connectX_db");
-if(!$connection){
-    die("Connection to database failed");
+$conn=mysqli_connect("localhost","root","","connectx_db");
+if(!$conn)
+{
+    die("Failed to Connect");
 }
