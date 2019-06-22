@@ -112,7 +112,7 @@ require_once "database/dbConnection.php";
             <p>Please fill in this form to create an account.</p>
             <hr>
             <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
+            <input type="text" class="validity" placeholder="Enter Email" name="email" required pattern="^[a-z0-9_\-\.]+@\w+\.\w+\.?\w+$">
 
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
@@ -229,9 +229,9 @@ require_once "database/dbConnection.php";
     <p>Lets get in touch and talk about your next project.</p>
     <form action="/action_page.php" target="_blank">
         <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-        <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Email">
-        <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" required name="Subject">
-        <input class="w3-input w3-section w3-border" type="text" placeholder="Comment" required name="Comment">
+        <input class="w3-input w3-section w3-border" type="text" class="validity" placeholder="Email" required name="Email" pattern="^[a-z0-9_\-\.]+@\w+\.\w+\.?\w+$">
+        <input class="w3-input w3-section w3-border" type="text"  class="validity"placeholder="Subject" required name="Subject" pattern="^.*$">
+        <input class="w3-input w3-section w3-border" type="text" class="validity" placeholder="Comment" required name="Comment" pattern="^.*$">
         <button class="w3-button w3-black w3-section" type="submit">
             <i class="fa fa-paper-plane"></i> SEND MESSAGE
         </button>
