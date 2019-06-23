@@ -81,11 +81,11 @@ include 'server/read_login.php';
 <!-- Login form-->
 <div id="login" class="modal">
 
-    <form class="modal-content animate"action="index.php" method="post">
+    <form class="modal-content animate" action="index.php" method="post">
         <div class="imgcontainer">
             <img src="images/ConnectXlogo.png" alt="" style=" width:200px;">
             <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close">&times;</span>
-
+            <img src="images/ConnectXlogo.png" alt="" width="200">
         </div>
 
         <div class="containerls">
@@ -95,7 +95,7 @@ include 'server/read_login.php';
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required pattern="^\w{8,}$">
 
-            <button type="submit" name="loginbtn">Login</button>
+            <button type="submit" name="login">Login</button>
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
