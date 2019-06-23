@@ -78,8 +78,7 @@ CREATE TABLE `projects` (
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `first_name` varchar(25) NOT NULL,
-  `last_name` varchar(25) NOT NULL,
+  `username` varchar(25) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
   `rating` decimal(2,1) NOT NULL,
