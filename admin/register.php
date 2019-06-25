@@ -26,7 +26,7 @@
       <div class="card-header">Register an Account</div>
       <div class="card-body">
         <form>
-          <div class="form-group">
+          <!--<div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <div class="form-label-group">
@@ -41,10 +41,14 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
           <div class="form-group">
+              <div class="form-label-group">
+                  <input type="text" id="firstName" name="uname" class="form-control" placeholder="Enter Username" required pattern="^\w+(?:\.|\-|_)?\w+$" autofocus="autofocus">
+                  <label for="firstName">Username</label>
+              </div>
             <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
+              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required pattern="^[a-z0-9_\-\.]+@\w+\.\w+\.?\w+$" autofocus="autofocus">
               <label for="inputEmail">Email address</label>
             </div>
           </div>
@@ -52,19 +56,21 @@
             <div class="form-row">
               <div class="col-md-6">
                 <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="psw" required pattern="^\w{8,}$">
                   <label for="inputPassword">Password</label>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-label-group">
-                  <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
+                  <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" name="psw" required pattern="^\w{8,}$">
                   <label for="confirmPassword">Confirm password</label>
                 </div>
               </div>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="login.php">Register</a>
+            <label for="dob">DOB</label>
+            <input type="date"  placeholder="Enter DOB" name="dob" required pattern="^([0-9]{2})\/([1-9]{1}|[10-12]{2})\/([0-9]{4})">
+          <a class="btn btn-primary btn-block" href="login.php" name="register">Register</a>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="login.php">Login Page</a>
