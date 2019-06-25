@@ -1,8 +1,11 @@
 <?php
 session_start();
-if(session_start()){
+require_once "db_Connection.php";
+
+
+/*if(session_start()){
     header('location: login.php');
-}
+}*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -147,14 +150,35 @@ if(session_start()){
                             $startDate=array("2011/04/25","2011/04/25","2011/04/25","2011/04/25");
                             $salary=array(2000000,200000,23323,23244);
                             ?>
-                            <tr>
-                                <td><?php for($i = 0;$i<=3;$i++) {echo $userNames[$i];}?></td>
-                                <td><?php for($i = 0;$i<=3;$i++){echo $position[$i];}?></td>
-                                <td><?php  for($i = 0;$i<=3;$i++){echo $office[$i];}?></td>
-                                <td><?php  for($i = 0;$i<=3;$i++){echo $age[$i];}?></td>
-                                <td><?php  for($i = 0;$i<=3;$i++){echo $startDate[$i];}?></td>
-                                <td><?php  for($i = 0;$i<=3;$i++){echo $salary[$i];}?></td>
-                            </tr>
+
+                            <?php
+
+                                for($i = 0;$i<=3;$i++) {
+
+                                    ?>
+                                    <tr>
+                                        <td><?php
+                                                echo $userNames[$i];
+                                            ?></td>
+                                        <td><?php
+                                                echo $position[$i];
+                                             ?></td>
+                                        <td><?php
+                                                echo $office[$i];
+                                            ?></td>
+                                        <td><?php
+                                                echo $age[$i];
+                                             ?></td>
+                                        <td><?php
+                                                echo $startDate[$i];
+                                            ?></td>
+                                        <td><?php
+                                                echo $salary[$i];
+                                             ?></td>
+                                    </tr>
+                                    <?php
+                                }
+                            ?>
                             <!--                            <tr>-->
                             <!--                                <td>Tiger Nixon</td>-->
                             <!--                                <td>System Architect</td>-->
