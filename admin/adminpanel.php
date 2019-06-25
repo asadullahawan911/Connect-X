@@ -1,5 +1,9 @@
-
-
+<?php
+session_start();
+if(session_start()){
+    header('location: login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
