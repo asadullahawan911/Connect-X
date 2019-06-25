@@ -125,6 +125,7 @@ $query = "SELECT Profile_image FROM user WHERE username='$userName'";
                                 <th>Budget</th>
                                 <th>Description</th>
                                 <th>Status</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tfoot>
@@ -134,6 +135,7 @@ $query = "SELECT Profile_image FROM user WHERE username='$userName'";
                                 <th>Budget</th>
                                 <th>Description</th>
                                 <th>Status</th>
+                                <th></th>
                             </tr>
                             </tfoot>
                             <tbody>
@@ -163,6 +165,12 @@ $query = "SELECT Profile_image FROM user WHERE username='$userName'";
                                     <td><?php
                                         echo $status[$i];
                                         ?></td>
+                                    <td><a href="editProject.php?edit_pro=<?php echo $proj_id?>" class="btn btn-primary">
+                                            <i class="fa fa-edit"></i> Edit
+                                        </a>
+                                        <a href="deleteProject.php?del_pro=<?php echo $proj_id?>" class="btn btn-danger">
+                                            <i class="fa fa-trash-alt"></i> Delete
+                                        </a></td>
                                 </tr>
                                 <?php
                             }
