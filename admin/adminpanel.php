@@ -3,6 +3,9 @@ session_start();
 require_once "db_Connection.php";
 $userName = $_SESSION['uname'];
 $query = "SELECT Profile_image FROM user WHERE username='$userName'";
+$result = mysqli_query($conn, $query);
+global $profileImage;
+$profileImage = mysqli_fetch_row($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +58,7 @@ $query = "SELECT Profile_image FROM user WHERE username='$userName'";
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user-circle fa-fw"></i>
-
+<img src = '<?php echo $profileImage[0]?>' alt="fitty mu" width="50" height="50">
             </a>
             <div> <font color="white" > <?php echo $userName;?> </font> </div>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
