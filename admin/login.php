@@ -1,43 +1,3 @@
-<?php
-session_start();
-include_once ("db_Connection.php");
-$username="";
-$password="";
-$msg = '';
-if (isset($_POST['login'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['uname']);
-    $password = mysqli_real_escape_string($conn, $_POST['psw']);
-
-
-
-        $query = "SELECT * FROM user WHERE username='$username' AND password='$password'";
-        $results = mysqli_query($conn, $query);
-        if (mysqli_num_rows($results)==1) {
-            $_SESSION['uname']=$username;
-            $_SESSION['psw']=$password;
-            if(!empty($_POST['remember']))
-            {
-                setcookie('uname',$username,time()+(10*365*24*60*60));
-                setcookie('psw',$password,time()+(10*365*24*60*60));
-            }
-            else
-            {
-                setcookie('uname','' );
-                setcookie('psw', '');
-            }
-
-            header('location:adminpanel.php?logged_in=You have successfully logged in!');
-
-        }
-        else
-        {
-
-            $msg = 'Wrong Email or Password. Try Again!';
-        }
-
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,11 +25,11 @@ if (isset($_POST['login'])) {
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form>
+        <form method="post" action="logina.php">
           <div class="form-group">
             <div class="form-label-group">
-              <input type="text" name="uname" id="firstname" class="form-control" placeholder="Username" required pattern="^\w{8,}$" autofocus="autofocus">
-              <label for="firstname">Username</label>
+              <input type="text" name="uname" id="username" class="form-control" placeholder="Username"  autofocus="autofocus">
+              <label for="username">Username</label>
             </div>
           </div>
           <div class="form-group">
@@ -78,7 +38,7 @@ if (isset($_POST['login'])) {
               <label for="inputPassword">Password</label>
             </div>
           </div>
-            <div><?php echo $msg;?></div>
+
           <div class="form-group">
             <div class="checkbox">
               <label>
