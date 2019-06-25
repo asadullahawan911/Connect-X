@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "database/dbConnection.php";
 include 'server/insert_signup.php';
 include 'server/read_login.php';
@@ -18,11 +19,12 @@ include 'server/read_login.php';
     <link rel="stylesheet" href="css/w3Schools.css">
     <link rel="stylesheet" href="css/loginSignup.css">
     <link rel="stylesheet" href="css/responsiveMenu.css">
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <style>
         input[class="validity"]:valid {
             background-color: limegreen;
         }
+
 
     </style>
 </head>
@@ -85,7 +87,6 @@ include 'server/read_login.php';
         <div class="imgcontainer">
             <img src="images/ConnectXlogo.png" alt="" style=" width:200px;">
             <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close">&times;</span>
-            <img src="images/ConnectXlogo.png" alt="" width="200">
         </div>
 
         <div class="containerls">
@@ -94,12 +95,12 @@ include 'server/read_login.php';
 
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required pattern="^\w{8,}$">
-
             <button type="submit" name="login">Login</button>
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
         </div>
+
 
         <div class="containerls" style="background-color:#f1f1f1">
             <button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtnlg">Cancel</button>
@@ -138,7 +139,6 @@ include 'server/read_login.php';
             </label>
 
             <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
             <div>
                 <button type="button" onclick="document.getElementById('signup').style.display='none'" class="cancelbtn" >Cancel</button>
                 <button type="submit" name="signupbtn" class="signupbtn">Sign Up</button>
@@ -168,32 +168,9 @@ include 'server/read_login.php';
         <iframe width="700" height="394"
                 src="https://www.youtube.com/embed/U5WsK-UNK6U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>
-<!--    <div class="w3-content w3-section container w3-left" style="max-width: 1000px;">-->
-<!--        <button class="btn"> Get Started </button>-->
-<!--        <img class="mySlides" src="images/slider1.jpg" style="width:1220px; height: 300px;">-->
-<!--        <img class="mySlides" src="images/slider2.jpg"  style="width:1220px; height: 300px;">-->
-<!--        <img class="mySlides" src="images/slider3.jpg"  style="width:1220px; height: 300px;">-->
-<!--    </div>-->
+
 </div>
-<!--    <script>-->
-<!--        var myIndex = 0;-->
-<!--        carousel();-->
 
-<!--        function carousel() {-->
-<!--            var i;-->
-<!--            var x = document.getElementsByClassName("mySlides");-->
-
-<!--            for (i = 0; i < x.length; i++) {-->
-<!--                x[i].style.display = "none";-->
-
-<!--            }-->
-<!--            myIndex++;-->
-<!--            if (myIndex > x.length) {myIndex = 1}-->
-<!--            x[myIndex-1].style.display = "block";-->
-
-<!--            setTimeout(carousel, 2000); // Change image every 2 seconds-->
-<!--        }-->
-<!--    </script>-->
 
     <!-- About Section -->
 <div class="w3-container w3-padding-32" id="about" style="background-image: url('images/aboutbackground1.png'); background-repeat: no-repeat; background-position: right; height: 738px">
