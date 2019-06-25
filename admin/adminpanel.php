@@ -1,11 +1,8 @@
 <?php
 session_start();
 require_once "db_Connection.php";
-
-
-/*if(session_start()){
-    header('location: login.php');
-}*/
+$userName = $_SESSION['uname'];
+$query = "SELECT Profile_image FROM user WHERE username='$userName'";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,8 +55,9 @@ require_once "db_Connection.php";
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user-circle fa-fw"></i>
+
             </a>
-            <div> <font color="white" > <?php echo $username="Ali Ahmed"?> </font> </div>
+            <div> <font color="white" > <?php echo $userName;?> </font> </div>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="uploadForm.php">Upload Media</a>
                 <div class="dropdown-divider"></div>
