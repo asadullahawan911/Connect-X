@@ -59,9 +59,9 @@ require_once "db_Connection.php";
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user-circle fa-fw"></i>
             </a>
+            <div> <font color="white" > <?php echo $username="Ali Ahmed"?> </font> </div>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">Settings</a>
-                <a class="dropdown-item" href="#">Activity Log</a>
+                <a class="dropdown-item" href="uploadForm.php">Upload Media</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
             </div>
@@ -94,8 +94,8 @@ require_once "db_Connection.php";
                 <h6 class="dropdown-header">Options:</h6>
                 <a class="dropdown-item" href="createProject.php">Create Project</a>
                 <a class="dropdown-item" href="editProject.php">Edit Project</a>
-                <a class="dropdown-item" href="addCategory.php">Add Category</a>
-                <a class="dropdown-item" href="deleteCategory.php">Delete Category</a>
+                <a class="dropdown-item" href="addUser.php">Add User</a>
+                <a class="dropdown-item" href="deleteUser.php">Delete User</a>
             </div>
         </li>
 
@@ -123,70 +123,53 @@ require_once "db_Connection.php";
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Project Name</th>
+                                <th>Budget</th>
+                                <th>Description</th>
+                                <th>Status</th>
                             </tr>
                             </thead>
                             <tfoot>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+
+                                <th>Project Name</th>
+                                <th>Budget</th>
+                                <th>Description</th>
+                                <th>Status</th>
                             </tr>
                             </tfoot>
                             <tbody>
                             <?php
-                            $userNames=array("ali", "ali","Tiger Nixon","Garrett Winters");
-                            $position =array("System Architect","System Architect","System Architect","System Architect");
-                            $office = array("Edinburgh","Edinburgh","Edinburgh","Edinburgh");
-                            $age=array(22,20,21,22);
-                            $startDate=array("2011/04/25","2011/04/25","2011/04/25","2011/04/25");
-                            $salary=array(2000000,200000,23323,23244);
+
+                            $ProjectName =array("System Architect","System Architect","System Architect","System Architect");
+                            $Budget = array("Edinburgh","Edinburgh","Edinburgh","Edinburgh");
+                            $description=array("2011/04/25","2011/04/25","2011/04/25","2011/04/25");
+                            $status=array(2000000,200000,23323,23244);
                             ?>
 
                             <?php
 
-                                for($i = 0;$i<=3;$i++) {
+                            for($i = 0;$i<=3;$i++) {
 
-                                    ?>
-                                    <tr>
-                                        <td><?php
-                                                echo $userNames[$i];
-                                            ?></td>
-                                        <td><?php
-                                                echo $position[$i];
-                                             ?></td>
-                                        <td><?php
-                                                echo $office[$i];
-                                            ?></td>
-                                        <td><?php
-                                                echo $age[$i];
-                                             ?></td>
-                                        <td><?php
-                                                echo $startDate[$i];
-                                            ?></td>
-                                        <td><?php
-                                                echo $salary[$i];
-                                             ?></td>
-                                    </tr>
-                                    <?php
-                                }
+                                ?>
+                                <tr>
+                                    <td><?php
+                                        echo $ProjectName[$i];
+                                        ?></td>
+                                    <td><?php
+                                        echo $Budget[$i];
+                                        ?></td>
+                                    <td><?php
+                                        echo $description[$i];
+                                        ?></td>
+                                    <td><?php
+                                        echo $status[$i];
+                                        ?></td>
+                                </tr>
+                                <?php
+                            }
                             ?>
-                            <!--                            <tr>-->
-                            <!--                                <td>Tiger Nixon</td>-->
-                            <!--                                <td>System Architect</td>-->
-                            <!--                                <td>Edinburgh</td>-->
-                            <!--                                <td>61</td>-->
-                            <!--                                <td>2011/04/25</td>-->
-                            <!--                                <td>$320,800</td>-->
-                            <!--                            </tr>-->
+
 
                             </tbody>
                         </table>
@@ -204,49 +187,55 @@ require_once "db_Connection.php";
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Is Admin</th>
+                                <th>User Name</th>
+                                <th>Email</th>
+                                <th>Rating</th>
+                                <th>Profile Picture</th>
                             </tr>
                             </thead>
                             <tfoot>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Is Admin</th>
+                                <th>User Name</th>
+                                <th>Email</th>
+                                <th>Rating</th>
+                                <th>Profile Picture</th>
                             </tr>
                             </tfoot>
                             <tbody>
                             <?php
-                            $userNames=array("ali", "ali","Tiger Nixon","Garrett Winters");
-    $position =array("System Architect","System Architect","System Architect","System Architect");
-    $office = array("Edinburgh","Edinburgh","Edinburgh","Edinburgh");
-    $age=array(22,20,21,22);
-    $startDate=array("2011/04/25","2011/04/25","2011/04/25","2011/04/25");
-    $salary=array(2000000,200000,23323,23244);
-                           ?>
-                            <tr>
-                                <td><?php for($i = 0;$i<=3;$i++) {echo $userNames[$i];}?></td>
-                                <td><?php for($i = 0;$i<=3;$i++){echo $position[$i];}?></td>
-                                <td><?php  for($i = 0;$i<=3;$i++){echo $office[$i];}?></td>
-                                <td><?php  for($i = 0;$i<=3;$i++){echo $age[$i];}?></td>
-                                <td><?php  for($i = 0;$i<=3;$i++){echo $startDate[$i];}?></td>
-                                <td><?php  for($i = 0;$i<=3;$i++){echo $salary[$i];}?></td>
-                            </tr>
-<!--                            <tr>-->
-<!--                                <td>Tiger Nixon</td>-->
-<!--                                <td>System Architect</td>-->
-<!--                                <td>Edinburgh</td>-->
-<!--                                <td>61</td>-->
-<!--                                <td>2011/04/25</td>-->
-<!--                                <td>$320,800</td>-->
-<!--                            </tr>-->
+                            $is_Admin=array("ali", "ali","Tiger Nixon","Garrett Winters");
+                            $username=array("System Architect","System Architect","System Architect","System Architect");
+                            $email = array("Edinburgh","Edinburgh","Edinburgh","Edinburgh");
+                            $rating=array("2011/04/25","2011/04/25","2011/04/25","2011/04/25");
+                            $profilePicture=array(2000000,200000,23323,23244);
+                            ?>
+
+                            <?php
+
+                            for($i = 0;$i<=3;$i++) {
+                                ?>
+                                <tr>
+                                    <td><?php
+                                        echo $is_Admin[$i];
+                                        ?></td>
+                                    <td><?php
+                                        echo $username[$i];
+                                        ?></td>
+                                    <td><?php
+                                        echo $email[$i];
+                                        ?></td>
+                                    <td><?php
+                                        echo $rating[$i];
+                                        ?></td>
+                                    <td><?php
+                                        echo $profilePicture[$i];
+                                        ?></td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
 
                             </tbody>
                         </table>
