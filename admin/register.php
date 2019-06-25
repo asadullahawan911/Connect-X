@@ -1,3 +1,31 @@
+<?php
+include_once ("db_Connection.php");
+$username="";
+$email="";
+$password1="";
+$password2="";
+$dob="";
+$is_admin="yes";
+if (isset($_POST['register'])) {
+    $username = mysqli_real_escape_string($conn, $_POST['uname']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password1 = mysqli_real_escape_string($conn, $_POST['psw']);
+    $password2 = mysqli_real_escape_string($conn, $_POST['psw-repeat']);
+    $dob = mysqli_real_escape_string($conn, $_POST['dob']);
+}
+if($password1==$password2) {
+    $password = $password1;
+}
+
+    $query = "INSERT INTO user (is_admin,username,email,password,rating,DOB,Profile_image) 
+  			  VALUES('$is_admin','$username','$email','$password','0.0','$dob','')";
+mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);
+    if(mysqli_num_rows($result)==1)
+    {
+        header('location:login.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +53,7 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Register an Account</div>
       <div class="card-body">
-        <form>
+        <form method="post" action="register.php">
           <!--<div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
@@ -62,7 +90,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-label-group">
-                  <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" name="psw" required pattern="^\w{8,}$">
+                  <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" name="psw-repeat" required pattern="^\w{8,}$">
                   <label for="confirmPassword">Confirm password</label>
                 </div>
               </div>
@@ -70,7 +98,8 @@
           </div>
             <label for="dob">DOB</label>
             <input type="date"  placeholder="Enter DOB" name="dob" required pattern="^([0-9]{2})\/([1-9]{1}|[10-12]{2})\/([0-9]{4})">
-          <a class="btn btn-primary btn-block" href="login.php" name="register">Register</a>
+          <input class="btn btn-primary btn-block" type="submit" name="register" value="Register" />
+          <!--  <button name="register" type="submit">Register</button>-->
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="login.php">Login Page</a>
