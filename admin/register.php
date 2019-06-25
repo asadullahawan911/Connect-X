@@ -6,6 +6,7 @@ $password1="";
 $password2="";
 $dob="";
 $is_admin="yes";
+$errors=array();
 if (isset($_POST['register'])) {
     $username = mysqli_real_escape_string($conn, $_POST['uname']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -13,18 +14,35 @@ if (isset($_POST['register'])) {
     $password2 = mysqli_real_escape_string($conn, $_POST['psw-repeat']);
     $dob = mysqli_real_escape_string($conn, $_POST['dob']);
 }
-if($password1==$password2) {
-    $password = $password1;
+if (empty($username)) { array_push($errors, "Username is required"); }
+if (empty($email)) { array_push($errors, "Email is required"); }
+if (empty($password1)) { array_push($errors, "Password is required"); }
+if ($password1 != $password2) { array_push($errors, "The two passwords do not match");}
+$user_check_query = "SELECT * FROM user WHERE username='$username' OR email='$email' LIMIT 1";
+$result = mysqli_query($conn, $user_check_query);
+$user = mysqli_fetch_assoc($result);
+if ($user) { // if user exists
+    if ($user['username'] === $username) {
+        array_push($errors, "Username already exists");
+    }
+    if ($user['email'] === $email) {
+        array_push($errors, "email already exists");
+    }
+}
+if(count($errors)==0)
+{
+    $password=$password1;
+    $query = "INSERT INTO user (is_admin,username,email,password,rating,DOB,Profile_image) VALUES('$is_admin','$username', '$email', '$password','0.0','$dob','')";
+    $results = mysqli_query($conn, $query);
+    //if (mysqli_num_rows($results)) {
+        /*$_SESSION['uname']=$username;
+        $_SESSION['psw']=$password;*/
+
+        header('location:adminpanel.php');
+
+    //}
 }
 
-    $query = "INSERT INTO user (is_admin,username,email,password,rating,DOB,Profile_image) 
-  			  VALUES('$is_admin','$username','$email','$password','0.0','$dob','')";
-mysqli_query($conn, $query);
-    $result = mysqli_query($conn, $query);
-    if(mysqli_num_rows($result)==1)
-    {
-        header('location:login.php');
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,7 +116,7 @@ mysqli_query($conn, $query);
           </div>
             <label for="dob">DOB</label>
             <input type="date"  placeholder="Enter DOB" name="dob" required pattern="^([0-9]{2})\/([1-9]{1}|[10-12]{2})\/([0-9]{4})">
-          <input class="btn btn-primary btn-block" type="submit" name="register" value="Register" />
+          <button class="btn btn-primary btn-block" type="submit" name="register">Register</button>
           <!--  <button name="register" type="submit">Register</button>-->
         </form>
         <div class="text-center">
