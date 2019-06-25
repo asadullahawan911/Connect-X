@@ -1,8 +1,11 @@
 <?php
 session_start();
 require_once "db_Connection.php";
-$userName = $_SESSION['uname'];
-$query = "SELECT Profile_image FROM user WHERE username='$userName'";
+
+
+/*if(session_start()){
+    header('location: login.php');
+}*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +18,7 @@ $query = "SELECT Profile_image FROM user WHERE username='$userName'";
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Connect X Admin - Dashboard</title>
+    <title>Connect X User - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -55,9 +58,7 @@ $query = "SELECT Profile_image FROM user WHERE username='$userName'";
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user-circle fa-fw"></i>
-
             </a>
-            <div> <font color="white" > <?php echo $userName;?> </font> </div>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="uploadForm.php">Upload Media</a>
                 <div class="dropdown-divider"></div>
@@ -84,16 +85,9 @@ $query = "SELECT Profile_image FROM user WHERE username='$userName'";
                 <span>Pages</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                <h6 class="dropdown-header">Login Screens:</h6>
-                <a class="dropdown-item" href="login.php">Login</a>
-                <a class="dropdown-item" href="register.php">Register</a>
-                <a class="dropdown-item" href="forgot-password.php">Forgot Password</a>
-                <div class="dropdown-divider"></div>
                 <h6 class="dropdown-header">Options:</h6>
                 <a class="dropdown-item" href="createProject.php">Create Project</a>
                 <a class="dropdown-item" href="editProject.php">Edit Project</a>
-                <a class="dropdown-item" href="addUser.php">Add User</a>
-                <a class="dropdown-item" href="deleteUser.php">Delete User</a>
             </div>
         </li>
 
@@ -121,6 +115,7 @@ $query = "SELECT Profile_image FROM user WHERE username='$userName'";
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                             <tr>
+
                                 <th>Project Name</th>
                                 <th>Budget</th>
                                 <th>Description</th>
@@ -147,25 +142,25 @@ $query = "SELECT Profile_image FROM user WHERE username='$userName'";
 
                             <?php
 
-                            for($i = 0;$i<=3;$i++) {
+                                for($i = 0;$i<=3;$i++) {
 
-                                ?>
-                                <tr>
-                                    <td><?php
-                                        echo $ProjectName[$i];
-                                        ?></td>
-                                    <td><?php
-                                        echo $Budget[$i];
-                                        ?></td>
-                                    <td><?php
-                                        echo $description[$i];
-                                        ?></td>
-                                    <td><?php
-                                        echo $status[$i];
-                                        ?></td>
-                                </tr>
-                                <?php
-                            }
+                                    ?>
+                                    <tr>
+                                        <td><?php
+                                                echo $ProjectName[$i];
+                                             ?></td>
+                                        <td><?php
+                                                echo $Budget[$i];
+                                            ?></td>
+                                        <td><?php
+                                                echo $description[$i];
+                                            ?></td>
+                                        <td><?php
+                                                echo $status[$i];
+                                             ?></td>
+                                    </tr>
+                                    <?php
+                                }
                             ?>
 
 
