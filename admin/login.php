@@ -1,22 +1,14 @@
 <?php
-require_once "database/dbConnection.php";
 session_start();
+include_once ("db_Connection.php");
 $username="";
 $password="";
-$errors = array();
-$msg='';
+$msg = '';
 if (isset($_POST['login'])) {
     $username = mysqli_real_escape_string($conn, $_POST['uname']);
     $password = mysqli_real_escape_string($conn, $_POST['psw']);
 
-    if (empty($username)) {
-        array_push($errors, "Username is required");
-    }
-    if (empty($password)) {
-        array_push($errors, "Password is required");
-    }
 
-    if (count($errors) == 0) {
 
         $query = "SELECT * FROM user WHERE username='$username' AND password='$password'";
         $results = mysqli_query($conn, $query);
@@ -39,10 +31,10 @@ if (isset($_POST['login'])) {
         }
         else
         {
-            array_push($errors, "Wrong username/password combination");
-            $msg='Wrong Email or Password. Try Again!';
+
+            $msg = 'Wrong Email or Password. Try Again!';
         }
-    }
+
 }
 ?>
 
@@ -76,7 +68,7 @@ if (isset($_POST['login'])) {
         <form>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="email" name="uname" id="firstname" class="form-control" placeholder="Username" required pattern="^\w{8,}$" autofocus="autofocus">
+              <input type="text" name="uname" id="firstname" class="form-control" placeholder="Username" required pattern="^\w{8,}$" autofocus="autofocus">
               <label for="firstname">Username</label>
             </div>
           </div>
@@ -95,7 +87,7 @@ if (isset($_POST['login'])) {
               </label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" name="login">Login</a>
+            <input class="btn btn-primary btn-block" type="submit" name="login" value="Login" />
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.php">Register an Account</a>
