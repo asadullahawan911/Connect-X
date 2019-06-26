@@ -1,5 +1,5 @@
 <?php
-session_start();
+/*session_start();*/
 $username="";
 $password="";
 $errors = array();
@@ -39,7 +39,7 @@ if (isset($_POST['login'])) {
         else
             {
           array_push($errors, "Wrong username/password combination");
-            $msg = 'Wrong Email or Password. Try Again!';
+            $msg = "Wrong Email or Password. Try Again!";
         }
     }
 }
