@@ -99,6 +99,7 @@ include 'server/read_login.php';
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
+            <div id="error"><?php echo $msg;?></div>
         </div>
 
 
