@@ -2,6 +2,9 @@
 session_start();
 require_once "db_Connection.php";
 $userName = $_SESSION['uname'];
+if(!isset($userName)){
+    header('location: login.php?not_admin=You are not Admin!');
+}
 $query = "SELECT Profile_image FROM user WHERE username='$userName'";
 $result = mysqli_query($conn, $query);
 global $profileImage;
