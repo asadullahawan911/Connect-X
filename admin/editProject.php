@@ -1,22 +1,23 @@
 <?php
 include 'db_Connection.php';
 $proj_id="";
+$proj_id = $_GET['edit_pro'];
 
-if(isset($_POST['update'])){
-    //getting text data from the fields
-    $proj_name = $_POST['proj_name'];
-    $proj_id = $_GET['edit_pro'];
-    $proj_budget=$_GET['budget'];
-    $proj_desc=$_GET['desc'];
-    $proj_status=$_GET['status'];
+    if (isset($_POST['update'])) {
 
-    $update_product = "update projects set Project_name = '$proj_name' and Budget='$proj_budget' and Description='$proj_desc' and Status='$proj_status'where Project_id='$proj_id'";
+        //getting text data from the fields
+        $proj_name = $_POST['proj_name'];
+        $proj_budget = $_POST['budget'];
+        $proj_desc = $_POST['desc'];
+        $proj_status = $_POST['status'];
 
-    $update_pro = mysqli_query($conn, $update_product);
-    if($update_pro){
-        header("location: adminpanel.php");
+          $update_product = "update projects set Project_name = '$proj_name', Budget='$proj_budget', Description='$proj_desc' , status='$proj_status'where Project_id='$proj_id'";
+        $update_pro = mysqli_query($conn, $update_product);
+        if ($update_pro) {
+           header("location: adminpanel.php");
+
+        }
     }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
