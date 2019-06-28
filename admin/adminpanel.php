@@ -98,7 +98,7 @@ $profileImage = mysqli_fetch_row($result);
                 <h6 class="dropdown-header">Options:</h6>
                 <a class="dropdown-item" href="createProject.php">Create Project</a>
                 <a class="dropdown-item" href="editProject.php">Edit Project</a>
-                <a class="dropdown-item" href="addUser.php">Add User</a>
+                <a class="dropdown-item" href="editUser.php">Add User</a>
                 <a class="dropdown-item" href="deleteUser.php">Delete User</a>
             </div>
         </li>
@@ -146,43 +146,37 @@ $profileImage = mysqli_fetch_row($result);
                             </tfoot>
                             <tbody>
                             <?php
-
-                            $ProjectName =array("System Architect","System Architect","System Architect","System Architect");
-                            $Budget = array("Edinburgh","Edinburgh","Edinburgh","Edinburgh");
-                            $description=array("2011/04/25","2011/04/25","2011/04/25","2011/04/25");
-                            $status=array(2000000,200000,23323,23244);
+                            $query = "SELECT * FROM projects";
+                            $result = mysqli_query($conn, $query);
                             ?>
-
                             <?php
-
-                            for($i = 0;$i<=3;$i++) {
-
+                            while($row = $result->fetch_assoc()) {
                                 ?>
                                 <tr>
                                     <td><?php
-                                        echo $ProjectName[$i];
+                                        echo $row["Project_name"];
                                         ?></td>
                                     <td><?php
-                                        echo $Budget[$i];
+                                        echo $row["Budget"];
                                         ?></td>
                                     <td><?php
-                                        echo $description[$i];
+                                        echo $row["Description"];
                                         ?></td>
                                     <td><?php
-                                        echo $status[$i];
+                                        echo $row["status"];
                                         ?></td>
-                                    <td><a href="editProject.php?edit_pro=<?php echo $proj_id?>" class="btn btn-primary">
+                                    <td>
+                                        <a href="editProject.php?edit_pro=<?php echo $proj_id = $row["Project_id"]?>" class="btn btn-primary">
                                             <i class="fa fa-edit"></i> Edit
                                         </a>
-                                        <a href="deleteProject.php?del_pro=<?php echo $proj_id?>" class="btn btn-danger">
+                                        <a href="deleteProject.php?del_pro=<?php echo $del_id = $row["Project_id"]?>" class="btn btn-danger">
                                             <i class="fa fa-trash-alt"></i> Delete
-                                        </a></td>
+                                        </a>
+                                    </td>
                                 </tr>
                                 <?php
                             }
                             ?>
-
-
                             </tbody>
                         </table>
                     </div>
@@ -217,44 +211,47 @@ $profileImage = mysqli_fetch_row($result);
                             </tfoot>
                             <tbody>
                             <?php
-                            $is_Admin=array("ali", "ali","Tiger Nixon","Garrett Winters");
-                            $username=array("System Architect","System Architect","System Architect","System Architect");
-                            $email = array("Edinburgh","Edinburgh","Edinburgh","Edinburgh");
-                            $rating=array("2011/04/25","2011/04/25","2011/04/25","2011/04/25");
-                            $profilePicture=array(2000000,200000,23323,23244);
+                            $query = "SELECT * FROM user";
+                            $result = mysqli_query($conn, $query);
                             ?>
 
                             <?php
-
-                            for($i = 0;$i<=3;$i++) {
+                            while($row = $result->fetch_assoc())
+                            {
                                 ?>
                                 <tr>
                                     <td><?php
-                                        echo $is_Admin[$i];
+                                        echo $row["is_admin"];
                                         ?></td>
                                     <td><?php
-                                        echo $username[$i];
+                                        echo $row["username"];
                                         ?></td>
                                     <td><?php
-                                        echo $email[$i];
+                                        echo $row["email"];
                                         ?></td>
                                     <td><?php
-                                        echo $rating[$i];
+                                        echo $row["rating"];
                                         ?></td>
-                                    <td><?php
-                                        echo $profilePicture[$i];
-                                        ?></td>
+                                    <td>
+                                        <img src = '<?php echo $row["Profile_image"]; ?>'
+                                             alt="Profile" width="50" height="50">
+                                    </td>
+
+                                    <td><a href="editUser.php?edit_user=<?php echo $user_id= $row["id"]?>" class="btn btn-primary">
+                                            <i class="fa fa-edit"></i> Edit
+                                        </a>
+                                        <a href="deleteUser.php?del_user=<?php echo $user_id= $row["id"]?>" class="btn btn-danger">
+                                            <i class="fa fa-trash-alt"></i> Delete
+                                        </a></td>
                                 </tr>
                                 <?php
                             }
                             ?>
-
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
         </div>
         <!-- /.container-fluid -->
 
