@@ -1,5 +1,6 @@
 <?php
 include_once ("db_Connection.php");
+include "email_check.php";
 $username="";
 $email="";
 $password1="";
@@ -63,6 +64,20 @@ if(count($errors)==0)
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
 
+    <script>
+        function checkEmail(email) {
+            var xmlhttp  = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if(this.readyState === 4 && this.status === 200){
+                    document.getElementById("hint").innerHTML = this.responseText;
+                }
+            }
+            xmlhttp.open("GET","check_email.php?e=" + email);
+            xmlhttp.send();
+        }
+    </script>
+
+
 </head>
 
 <body class="bg-dark">
@@ -94,7 +109,7 @@ if(count($errors)==0)
                   <label for="firstName">Username</label>
               </div>
             <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required pattern="^[a-z0-9_\-\.]+@\w+\.\w+\.?\w+$" autofocus="autofocus">
+              <input onkeyup="checkEmail(this.value)" type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required pattern="^[a-z0-9_\-\.]+@\w+\.\w+\.?\w+$" autofocus="autofocus">
               <label for="inputEmail">Email address</label>
             </div>
           </div>
